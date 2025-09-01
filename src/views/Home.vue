@@ -46,10 +46,10 @@ const dataVersion = "1.0.0";
             1) Addestramento Frenetico → Sigilli (indiretti)
           </h4>
           <p class="mb-2">
-            I <strong>Punti Addestramento</strong> dipendono da quanta
-            <em>energia</em> usi al giorno (tier). Raggiungendo specifiche
-            soglie del Rush ottieni pacchetti di
-            <strong>Sigilli Mitici</strong> (oltre ad altri premi).
+            I <strong>Punti Addestramento</strong> dipendono da quanti
+            <em>nemici</em> sconfiggi al giorno, dipendente dall'energia (tier).
+            Raggiungendo specifiche soglie dell'Addestramento ottieni pacchetti
+            di <strong>Sigilli Mitici</strong> (oltre ad altri premi).
           </p>
           <figure class="mb-0">
             <img
