@@ -3,6 +3,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
+  path: '/calcolatore-shop',
+  name: 'shop-spender',
+  component: () => import('../views/ShopSpender.vue'),
+  meta: { title: 'Calcolatore Spese Negozio' }
+  },
+  {
     path: '/',
     name: 'home',
     component: () => import('../views/Home.vue'),
@@ -13,12 +19,6 @@ const routes = [
     name: 'seals',
     component: () => import('../views/SealsCalculator.vue'),
     meta: { title: 'Calcolatore Sigilli' }
-  },
-  {
-    path: '/calcolatore-shop',
-    name: 'shop',
-    component: () => import('../views/ShopCalculator.vue'),
-    meta: { title: 'Calcolatore Spese Negozio' }
   },
   {
     path: '/lista-missioni',

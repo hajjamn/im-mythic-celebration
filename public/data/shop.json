@@ -1,0 +1,138 @@
+{
+  "notes": "Lo shop ha 3 livelli (High/Mid/Low). Gli OGGETTI cambiano per livello e per set (1/2/3). I PERSONAGGI ruotano su 7 insiemi fissi e si ripetono nella seconda settimana (8–14, il 15 replica 1). Gli omaggi (FREE) dipendono da giorno e livello.",
+  "characterShardRules": {
+    "locked": { "fragments": 25, "costSeals": 30, "maxBuysPerDay": 3 },
+    "unlocked": { "fragments": 50, "costSeals": 60, "maxBuysPerDay": 5 }
+  },
+
+  "setsByDay": {
+    "1": "set1",
+    "2": "set2",
+    "3": "set3",
+    "4": "set1",
+    "5": "set3",
+    "6": "set1",
+    "7": "set3"
+  },
+
+  "offersCatalog": {
+    "high": {
+      "set1": [
+        { "id": "draft_mythic_orbs_x5", "label": "Globi Mitici: Preparazione x5", "stock": 5, "costSeals": 155 },
+        { "id": "draft_legendary_orbs_x10", "label": "Globi Leggendari: Preparazione x10", "stock": 5, "costSeals": 140 },
+        { "id": "draft_epic_orbs_x10", "label": "Globi Epici: Preparazione x10", "stock": 5, "costSeals": 55 },
+        { "id": "grimoire_of_war_x2", "label": "Codice di Guerra x2", "stock": 3, "costSeals": 35 },
+        { "id": "coins_100k", "label": "Monete x100.000", "stock": 99, "costSeals": 40 },
+        { "id": "components_200", "label": "Componenti MdG x200", "stock": 5, "costSeals": 60 }
+      ],
+      "set2": [
+        { "id": "relic", "label": "Reliquia Mitica", "stock": 1, "costSeals": 85 },
+        { "id": "mythic_item_a", "label": "Oggetto Mitico", "stock": 3, "costSeals": 40 },
+        { "id": "mythic_item_b", "label": "Oggetto Mitico", "stock": 3, "costSeals": 40 },
+        { "id": "mythic_upgrades_crate", "label": "Cassa Potenziamenti Mitici", "stock": 3, "costSeals": 85 },
+        { "id": "legendary_upgrades_crate", "label": "Cassa Potenziamenti Leggendari", "stock": 3, "costSeals": 60 }
+      ],
+      "set3": [
+        { "id": "draft_mythic_badges_x6", "label": "Distintivi Mitici: Preparazione x6", "stock": 5, "costSeals": 55 },
+        { "id": "draft_legendary_badges_x8", "label": "Distintivi: Preparazione Leggendari x8", "stock": 5, "costSeals": 55 },
+        { "id": "draft_epic_badges_x10", "label": "Distintivi: Preparazione Epici x10", "stock": 5, "costSeals": 35 },
+        { "id": "mythic_salvage_250", "label": "Rottami Mitici x250", "stock": 99, "costSeals": 70 },
+        { "id": "salvage_2000", "label": "Rottami x2000", "stock": 99, "costSeals": 55 },
+        { "id": "mythic_forge_badges_x5", "label": "Distintivi Forgia Mitici x5", "stock": 5, "costSeals": 40 }
+      ]
+    },
+
+    "mid": {
+      "set1": [
+        { "id": "draft_legendary_orbs_x10", "label": "Globi Leggendari: Preparazione x10", "stock": 5, "costSeals": 140 },
+        { "id": "draft_epic_orbs_x10", "label": "Globi Epici: Preparazione x10", "stock": 5, "costSeals": 55 },
+        { "id": "draft_rare_orbs_x10", "label": "Globi Rari: Preparazione x10", "stock": 5, "costSeals": 25 },
+        { "id": "legendary_xp_x6", "label": "XP Leggendaria x6", "stock": 3, "costSeals": 20 },
+        { "id": "coins_30k", "label": "Monete x30.000", "stock": 99, "costSeals": 15 },
+        { "id": "components_75", "label": "Componenti x75", "stock": 5, "costSeals": 25 }
+      ],
+      "set2": [
+        { "id": "legendary_item", "label": "Oggetto Leggendario", "stock": 3, "costSeals": 15 },
+        { "id": "epic_item", "label": "Oggetto Epico", "stock": 3, "costSeals": 5 },
+        { "id": "rare_item", "label": "Oggetto Raro", "stock": 3, "costSeals": 2 },
+        { "id": "legendary_upgrades_crate", "label": "Cassa Potenziamenti Leggendari", "stock": 3, "costSeals": 60 },
+        { "id": "epic_upgrades_crate", "label": "Cassa Potenziamenti Epici", "stock": 3, "costSeals": 25 }
+      ],
+      "set3": [
+        { "id": "draft_legendary_badges_x8", "label": "Distintivi Leggendari: Preparazione x8", "stock": 5, "costSeals": 55 },
+        { "id": "draft_epic_badges_x10", "label": "Distintivi Epici: Preparazione x10", "stock": 5, "costSeals": 35 },
+        { "id": "draft_rare_badges_x10", "label": "Distintivi Rari: Preparazione x10", "stock": 5, "costSeals": 15 },
+        { "id": "salvage_1000", "label": "Rottami x1000", "stock": 99, "costSeals": 30 },
+        { "id": "legendary_forge_badges_x5", "label": "Distintivi Forgia Leggendari x5", "stock": 5, "costSeals": 20 }
+      ]
+    },
+
+    "low": {
+      "set1": [
+        { "id": "draft_epic_orbs_x10", "label": "Globi Epici: Preparazione x10", "stock": 5, "costSeals": 55 },
+        { "id": "draft_rare_orbs_x10", "label": "Globi Rari: Preparazione x10", "stock": 5, "costSeals": 25 },
+        { "id": "draft_uncommon_orbs_x10", "label": "Globi Non Comuni: Preparazione x10", "stock": 5, "costSeals": 10 },
+        { "id": "epic_xp_x15", "label": "XP Epica x15", "stock": 3, "costSeals": 10 },
+        { "id": "coins_10k", "label": "Monete x10.000", "stock": 99, "costSeals": 5 },
+        { "id": "breq_x3", "label": "Blessed Requisition x3", "stock": 1, "costSeals": 40 }
+      ],
+      "set2": [
+        { "id": "epic_item", "label": "Oggetto Epico", "stock": 3, "costSeals": 5 },
+        { "id": "rare_item", "label": "Oggetto Raro", "stock": 3, "costSeals": 2 },
+        { "id": "uncommon_item_x4", "label": "Oggetto Non Comune x4", "stock": 3, "costSeals": 3 },
+        { "id": "epic_upgrades_crate", "label": "Cassa Potenziamenti Epici", "stock": 3, "costSeals": 25 },
+        { "id": "rare_upgrades_crate", "label": "Cassa Potenziamenti Rari", "stock": 3, "costSeals": 10 }
+      ],
+      "set3": [
+        { "id": "draft_rare_badges_x10", "label": "Distintivi Rari: Preparazione x10", "stock": 5, "costSeals": 15 },
+        { "id": "draft_uncommon_badges_x10", "label": "Distintivi Non Comuni: Preparazione x10", "stock": 5, "costSeals": 9 },
+        { "id": "draft_common_badges_x10", "label": "Distintivi Comuni: Preparazione x10", "stock": 5, "costSeals": 4 },
+        { "id": "salvage_350", "label": "Rottami x350", "stock": 99, "costSeals": 10 },
+        { "id": "epic_forge_badges_x5", "label": "Distintivi Forgia Epici x5", "stock": 5, "costSeals": 10 },
+        { "id": "uncommon_forge_badges_x5", "label": "Distintivi Forgia Non Comuni: Preparazione x5", "stock": 5, "costSeals": 2 }
+      ]
+    }
+  },
+
+  "freeCatalog": {
+    "high": {
+      "mxp": { "id": "free_mxp", "label": "OMAGGIO · Codice di Guerra (XP Mitica)" },
+      "breq": { "id": "free_breq", "label": "OMAGGIO · Blessed Requisition" },
+      "malvage100": { "id": "free_mythic_salvage_100", "label": "OMAGGIO · Rottami Mitici x100" },
+      "morb": { "id": "free_morb", "label": "OMAGGIO · Globo Mitico" },
+      "madge": { "id": "free_madge", "label": "OMAGGIO · Distintivi Mitici" },
+      "components30": { "id": "free_components_30", "label": "OMAGGIO · Componenti x30" }
+    },
+    "mid": {
+      "lxp": { "id": "free_lxp", "label": "OMAGGIO · XP Leggendaria" },
+      "breq": { "id": "free_breq", "label": "OMAGGIO · Blessed Requisition" },
+      "leg_orb": { "id": "free_leg_orb", "label": "OMAGGIO · Globo Leggendario" },
+      "leg_badge": { "id": "free_leg_badge", "label": "OMAGGIO · Distintivo Leggendario" },
+      "components15": { "id": "free_components_15", "label": "OMAGGIO · Componenti x15" },
+      "salvage500": { "id": "free_salvage_500", "label": "OMAGGIO · Rottami x500" }
+    },
+    "low": {
+      "exp": { "id": "free_exp", "label": "OMAGGIO · XP Epica" },
+      "breq": { "id": "free_breq", "label": "OMAGGIO · Blessed Requisition" },
+      "epic_orb": { "id": "free_epic_orb", "label": "OMAGGIO · Globo Epico" },
+      "epic_badge": { "id": "free_epic_badge", "label": "OMAGGIO · Distintivo Epico" },
+      "salvage200": { "id": "free_salvage_200", "label": "OMAGGIO · Rottami x200" }
+    }
+  },
+
+  "freeByTierAndDay": {
+    "high": { "1": "mxp", "2": "breq", "3": "malvage100", "4": "mxp", "5": "mxp", "6": "components30", "7": "malvage100" },
+    "mid":  { "1": "lxp", "2": "breq", "3": "leg_orb",   "4": "leg_badge", "5": "lxp", "6": "components15", "7": "salvage500" },
+    "low":  { "1": "exp", "2": "breq", "3": "epic_orb",  "4": "epic_badge", "5": "exp", "6": "breq",       "7": "salvage200" }
+  },
+
+  "charactersByDay": {
+    "1": ["Actus","Aesoth","Aleph-Null","Anuphet","Baraqiel","Galatian","Kariyan","Macer","Marneus Calgar","Maugan Ra","Sibyll Devine","Snotflogga","Tarvakh","Thaumachus","Yazaghor"],
+    "2": ["Abaddon The Despoiler","Archimatos","Aun'Shi","Brother Jaeger","Exorcist","Kut Skoden","Mataneo","Morvenn Vahl","Parasite of Mortrex","Pestillian","Snappawrecka","Tan Gi'da","Thaddeus Noble","Xybia"],
+    "3": ["Aethana","Ahriman","Ancient Thoread","Azkor","Brother Burchard","Calandis","High Marshal Helbrecht","Maladus","Malleus Rocket Launcher","Nauseous Rotbone","Neurothrope","Nicodemus","Titus","Vindicta"],
+    "4": ["Atlacoya","Azrael","Boss Gulgortz","Celestine","Darkstrider","Forgefiend","Gibbascrapz","Hollan","Jain Zar","Sword Brother Godswyl","Thutmose","Toth","Varro Tigurius","Volk"],
+    "5": ["Castellan Creed","Certus","Corrodius","Forcas","Imospekh","Judh","Kharn","Njal","Plagueburst Crawler","Re'vas","Roswitha","Ulf","Vitruvius","Winged Prime"],
+    "6": ["Abraxas","Angrax","Bellator","Commissar Yarrick","Deathleaper","Eldryon","Exitor-Rho","Haarken Worldclaimer","Ragnar","Shadowsun","Tjark","Tson'ji","Tyrant Guard","Wrask"],
+    "7": ["Arjac","Asmodai","Biovore","Incisus","Isaak","Isabella","Lucien","Makhotep","Mephiston","Sarquael","Sho'syl","Sy-Gex","Tanksmasha","Typhus"]
+  }
+}

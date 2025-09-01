@@ -94,6 +94,16 @@ const totalSeals = computed(
     sealsCrates.value
 );
 
+watch(
+  totalSeals,
+  (v) => {
+    try {
+      localStorage.setItem("im_last_totalSeals", String(v));
+    } catch {}
+  },
+  { immediate: true }
+);
+
 // share link
 const shareUrl = computed(() => {
   const s = encodeState(form);
