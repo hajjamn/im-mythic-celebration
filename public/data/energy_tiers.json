@@ -1,0 +1,8 @@
+[
+  { "id": "base",   "label": "Solo energia giornaliera",          "rushPoints14d": 12000 },
+  { "id": "ads",    "label": "Energia + pubblicità",               "rushPoints14d": 16000 },
+  { "id": "50BS",   "label": "Energia + adv + 50 Pietranera",      "rushPoints14d": 20000 },
+  { "id": "110BS",  "label": "Energia + adv + 110 Pietranera",     "rushPoints14d": 23000 },
+  { "id": "250BS",  "label": "Energia + adv + 250 Pietranera",     "rushPoints14d": 26000 },
+  { "id": "500BS",  "label": "Energia + adv + 500 Pietranera",     "rushPoints14d": 29000 }
+]

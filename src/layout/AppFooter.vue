@@ -1,26 +1,16 @@
-<script>
-
-export default {
-  components: {
-  },
-  data() {
-    return {
-    }
-  }
-}
-
-</script>
-
+<!-- src/layout/AppFooter.vue -->
 <template>
-
   <footer>
-    <section class="bg-dark">
-      <div class="container py-5 text-center text-white">
-        <h1>FOOTER</h1>
+    <section class="bg-white border-top">
+      <div class="container py-3 text-center">
+        <small class="text-muted d-block"
+          >© ITALIAN MARAUDERS · Non ufficiale</small
+        >
       </div>
     </section>
   </footer>
-
 </template>
 
-<style></style>
+<script setup></script>
+
+<style scoped></style>
