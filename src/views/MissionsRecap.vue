@@ -57,10 +57,9 @@ const sealsDirectPremium = computed(() => missions.premium?.directSeals || 0);
         <p class="mb-2">
           I <strong>Punti Evento</strong> si ottengono completando
           <strong>Missioni giornaliere</strong>, le missioni dell’evento
-          <strong>Sacrificio di Grandezza!</strong> (una sola volta), e – se
-          attivi il pass – le missioni premium
-          <strong>Ascensione del Divino!</strong>. Le soglie della
-          <em>progress bar</em> evento convertono questi punti in
+          <strong>Sacrificio di Grandezza!</strong> e – se attivi il pass – le
+          missioni premium <strong>Ascensione del Divino!</strong> Le soglie
+          della <em>progress bar</em> evento convertono questi punti in
           <strong>Sigilli Mitici</strong>.
         </p>
         <div class="row g-2 small text-center">
@@ -458,9 +457,9 @@ const sealsDirectPremium = computed(() => missions.premium?.directSeals || 0);
     <section class="card shadow-sm mb-5">
       <div class="card-body">
         <p class="text-muted small mb-0">
-          Suggerimento: completa prima le giornaliere ogni giorno e avanza sulle
-          serie cumulative quando hai tempo. I Punti Evento si sommano e
-          sbloccano Sigilli alle soglie della progress bar.
+          Suggerimento: completa prima le giornaliere ogni giorno e
+          nell'Addestramento Frenetico quando hai tempo. I Punti Evento si
+          sommano e sbloccano Sigilli alle soglie della progress bar.
         </p>
       </div>
     </section>

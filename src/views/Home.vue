@@ -15,14 +15,14 @@ const dataVersion = "1.0.0";
         <p class="mb-3">
           Questo sito ti aiuta a
           <strong>stimare quanti Sigilli Mitici</strong> puoi ottenere durante
-          la <em>Ce<strong>le</strong>brazione Mitica</em> e a
+          la <em>Celebrazione Mitica</em> e a
           <strong>pianificare cosa comprare nello shop</strong> con rotazione
           settimanale.
         </p>
         <ul class="mb-0">
           <li>
             <strong>Punti Addestramento</strong> (da energia/attività) →
-            sblocchi ricompense del Training Rush (tra cui Sigilli).
+            sblocchi ricompense del Addestramento Frenetico (tra cui Sigilli).
           </li>
           <li>
             <strong>Punti Evento</strong> (daily + missioni free/premium) →
@@ -92,29 +92,17 @@ const dataVersion = "1.0.0";
                 <img
                   class="img-fluid rounded shadow-sm"
                   :src="base + 'img/index/03-missioni-evento-e-premium.jpeg'"
-                  alt="Missioni dell'evento: Sacrificio di Grandezza!"
+                  alt="Missioni dell'evento: Sacrificio di Grandezza! e Ascensione del Divino!"
                   @error="$event.target.style.display = 'none'"
                 />
                 <figcaption class="text-muted small mt-2">
                   Missioni non giornaliere:
-                  <em>Sacrificio di Grandezza!</em> (una sola volta).
+                  <em>Sacrificio di Grandezza! e Ascensione del Divino!</em>
+                  (una sola volta).
                 </figcaption>
               </figure>
             </div>
-            <div class="col-12 col-md-6">
-              <figure class="mb-0">
-                <img
-                  class="img-fluid rounded shadow-sm"
-                  :src="base + 'img/index/03-missioni-evento-e-premium.jpeg'"
-                  alt="Missioni Premium: Ascensione del Divino!"
-                  @error="$event.target.style.display = 'none'"
-                />
-                <figcaption class="text-muted small mt-2">
-                  Missioni Premium: <em>Ascensione del Divino!</em> — aggiungono
-                  Punti Evento e alcuni Sigilli diretti.
-                </figcaption>
-              </figure>
-            </div>
+
             <div class="col-12 col-md-6">
               <figure class="mb-0">
                 <img
@@ -241,13 +229,4 @@ const dataVersion = "1.0.0";
       </div>
     </section>
   </main>
-
-  <footer class="py-3 bg-white border-top">
-    <div class="container text-center">
-      <small class="text-muted d-block"
-        >© ITALIAN MARAUDERS · Non ufficiale</small
-      >
-      <small class="text-muted">Dati v{{ dataVersion }}</small>
-    </div>
-  </footer>
 </template>
