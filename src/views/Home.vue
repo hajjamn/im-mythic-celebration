@@ -67,10 +67,10 @@ const dataVersion = "1.0.0";
         <div class="mb-4">
           <h4 class="h6 mb-2">2) Punti Evento → Sigilli (diretti)</h4>
           <p class="mb-2">
-            Completa <strong>Daily</strong> (ogni giorno),
-            <strong>Missioni Evento (free)</strong> e, se attivo,
-            <strong>Premium</strong>. Ogni traguardo di
-            <strong>Punti Evento</strong> nella progress bar assegna
+            Completa <strong>Missioni Evento Giornaliere</strong> (ogni giorno),
+            <strong>Missioni Evento</strong> (gratuite) e, se attivo,
+            <strong>Missioni Premium</strong>. Ogni traguardo di
+            <strong>Punti Evento</strong> nella barra di progresso assegna
             <strong>Sigilli Mitici</strong>.
           </p>
           <div class="row g-3">
@@ -97,8 +97,7 @@ const dataVersion = "1.0.0";
                 />
                 <figcaption class="text-muted small mt-2">
                   Missioni non giornaliere:
-                  <em>Sacrificio di Grandezza! e Ascensione del Divino!</em>
-                  (una sola volta).
+                  <em>Sacrificio di Grandezza! e Ascensione del Divino!</em>.
                 </figcaption>
               </figure>
             </div>
@@ -144,15 +143,15 @@ const dataVersion = "1.0.0";
             Scegli il tuo <strong>tier di energia</strong> nel calcolatore.
           </li>
           <li>
-            Completa <strong>Daily</strong> e
+            Completa <strong>Missioni Giornaliere</strong> e
             <strong>Missioni Evento</strong> (free; Premium se attivo).
           </li>
           <li>
-            Apri le <strong>crates del Torneo</strong> quando disponibili.
+            Apri le <strong>casse del Torneo Arena</strong> quando disponibili.
           </li>
           <li>
-            Pianifica gli acquisti: lo <strong>shop</strong> ruota su 7 giorni e
-            si ripete la settimana dopo.
+            Pianifica gli acquisti: il <strong>negozio</strong> ruota su 7
+            giorni e si ripete la settimana dopo.
           </li>
         </ol>
       </div>
@@ -186,7 +185,7 @@ const dataVersion = "1.0.0";
         <figure class="mb-0">
           <img
             class="img-fluid rounded shadow-sm"
-            :src="base + 'img/index/07-negozio-mitico.j'"
+            :src="base + 'img/index/07-negozio-mitico.jpeg'"
             alt="Negozio Mitico - esempi di offerte"
             @error="$event.target.style.display = 'none'"
           />
