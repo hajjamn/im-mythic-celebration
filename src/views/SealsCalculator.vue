@@ -25,7 +25,7 @@ const data = reactive({
   tournament: { crateSeals: 10, maxCrates: 12 },
 });
 
-// helpers
+// helper generico (lo teniamo se ti torna utile altrove)
 function thresholdsReached(list, total, pointsKey, sealsKey) {
   const rows = [];
   let seals = 0;
@@ -62,19 +62,39 @@ const eventPoints = computed(() => {
   return pts;
 });
 
-const rushSoglie = computed(() =>
-  thresholdsReached(data.rushRewards, rushPoints.value, "rushPoints", "seals")
-);
-
-const eventSoglie = computed(() =>
-  thresholdsReached(
-    data.eventProgress,
-    eventPoints.value,
-    "eventPoints",
-    "seals"
+// ==== RUSH (mostra tutto + totale solo raggiunte)
+const rushRowsAll = computed(() => {
+  return (data.rushRewards || []).map((t) => {
+    const need = +t.rushPoints || 0; // cumulativo
+    const seals = +t.seals || 0; // 30 o 0
+    const reached = need <= rushPoints.value;
+    return { need, seals, reached };
+  });
+});
+const rushSealsTotal = computed(() =>
+  rushRowsAll.value.reduce(
+    (sum, r) => sum + (r.reached ? Math.max(0, r.seals) : 0),
+    0
   )
 );
 
+// ==== EVENTO (mostra tutto + totale solo raggiunte)
+const eventRowsAll = computed(() => {
+  return (data.eventProgress || []).map((t) => {
+    const need = +t.eventPoints || 0;
+    const seals = +t.seals || 0;
+    const reached = need <= eventPoints.value;
+    return { need, seals, reached };
+  });
+});
+const eventSealsTotal = computed(() =>
+  eventRowsAll.value.reduce(
+    (sum, r) => sum + (r.reached ? Math.max(0, r.seals) : 0),
+    0
+  )
+);
+
+// altri contributi
 const sealsPremium = computed(() =>
   form.hasPremium ? data.missions.premium.directSeals || 0 : 0
 );
@@ -86,14 +106,16 @@ const sealsCrates = computed(() => {
   return n * (data.tournament.crateSeals || 0);
 });
 
+// totale
 const totalSeals = computed(
   () =>
-    rushSoglie.value.seals +
-    eventSoglie.value.seals +
+    rushSealsTotal.value +
+    eventSealsTotal.value +
     sealsPremium.value +
     sealsCrates.value
 );
 
+// persistenza: ultimo totale
 watch(
   totalSeals,
   (v) => {
@@ -112,7 +134,6 @@ const shareUrl = computed(() => {
 
 // init
 onMounted(async () => {
-  // carica dati dal public/
   const [tiersArr, tokens, missions, progress, rush, tour] = await Promise.all([
     loadJSON("/data/energy_tiers.json"),
     loadJSON("/data/token_activities.json"),
@@ -268,11 +289,11 @@ onMounted(async () => {
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between">
               <span>Da Addestramento Frenetico</span>
-              <strong>{{ rushSoglie.seals.toLocaleString("it-IT") }}</strong>
+              <strong>{{ rushSealsTotal.toLocaleString("it-IT") }}</strong>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Dalla progress bar Evento</span>
-              <strong>{{ eventSoglie.seals.toLocaleString("it-IT") }}</strong>
+              <strong>{{ eventSealsTotal.toLocaleString("it-IT") }}</strong>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Diretti (Premium)</span>
@@ -287,40 +308,55 @@ onMounted(async () => {
       </div>
 
       <div class="row g-3">
+        <!-- Rush -->
         <div class="col-12 col-md-6">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="h6">Soglie raggiunte – Addestramento</h5>
+              <h5 class="h6">Soglie – Addestramento (raggiunte + future)</h5>
               <div class="table-responsive">
                 <table class="table table-sm mb-0">
                   <thead>
                     <tr>
-                      <th>Punti</th>
+                      <th>Punti Rush (cumulativi)</th>
                       <th>Sigilli</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-if="!rushSoglie.rows.length">
+                    <tr v-if="!rushRowsAll.length">
                       <td colspan="2" class="text-muted">Nessuna soglia.</td>
                     </tr>
-                    <tr v-for="([need, seals], i) in rushSoglie.rows" :key="i">
-                      <td>{{ need.toLocaleString("it-IT") }}</td>
-                      <td>{{ seals.toLocaleString("it-IT") }}</td>
+                    <tr
+                      v-for="row in rushRowsAll"
+                      :key="row.need"
+                      :class="{
+                        'text-muted': !row.reached,
+                        'opacity-50': !row.reached,
+                      }"
+                    >
+                      <td>{{ row.need.toLocaleString("it-IT") }}</td>
+                      <td>
+                        <template v-if="row.seals > 0">
+                          {{ row.seals.toLocaleString("it-IT") }}
+                        </template>
+                        <span v-else>—</span>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <p class="text-muted small mb-0 mt-2">
-                <em>Nota:</em> soglie Addestramento da confermare (placeholder).
+                Le righe sbiadite non sono ancora raggiunte; il totale somma
+                solo i Sigilli delle soglie raggiunte.
               </p>
             </div>
           </div>
         </div>
 
+        <!-- Evento -->
         <div class="col-12 col-md-6">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="h6">Soglie raggiunte – Evento</h5>
+              <h5 class="h6">Soglie – Evento (raggiunte + future)</h5>
               <div class="table-responsive">
                 <table class="table table-sm mb-0">
                   <thead>
@@ -330,18 +366,31 @@ onMounted(async () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-if="!eventSoglie.rows.length">
+                    <tr v-if="!eventRowsAll.length">
                       <td colspan="2" class="text-muted">Nessuna soglia.</td>
                     </tr>
-                    <tr v-for="([need, seals], i) in eventSoglie.rows" :key="i">
-                      <td>{{ need.toLocaleString("it-IT") }}</td>
-                      <td>{{ seals.toLocaleString("it-IT") }}</td>
+                    <tr
+                      v-for="row in eventRowsAll"
+                      :key="row.need"
+                      :class="{
+                        'text-muted': !row.reached,
+                        'opacity-50': !row.reached,
+                      }"
+                    >
+                      <td>{{ row.need.toLocaleString("it-IT") }}</td>
+                      <td>
+                        <template v-if="row.seals > 0">
+                          {{ row.seals.toLocaleString("it-IT") }}
+                        </template>
+                        <span v-else>—</span>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <p class="text-muted small mb-0 mt-2">
-                Soglie derivate dalla progress bar evento.
+                Le righe sbiadite non sono ancora raggiunte; il totale somma
+                solo i Sigilli delle soglie raggiunte.
               </p>
             </div>
           </div>
